@@ -8,10 +8,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 //import /* You need some sort of reducer */ './reducers';
 import rootReducer from './reducers'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const allMiddlewares = compose(
-  applyMiddleware(thunk, logger),
-  window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUX_DEVTOOLS_EXTENSION_()
+const allMiddlewares = composeWithDevTools(
+  applyMiddleware(thunk, logger)
 )
 
 const store = createStore(
